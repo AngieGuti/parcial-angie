@@ -20,6 +20,6 @@ export class AuditorioDto {
     // Asociaciones
     @IsOptional()
     @IsArray()
-    eventos: number[];
+    eventos?: number[];
 
 }

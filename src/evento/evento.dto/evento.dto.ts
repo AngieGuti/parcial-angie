@@ -23,6 +23,6 @@ export class EventoDto {
     // Asociaciones
     @IsOptional()
     @IsNumber()
-    ponenteId: number;
+    ponenteId?: number;
 
 }
