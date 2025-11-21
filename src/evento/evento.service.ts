@@ -47,6 +47,7 @@ export class EventoService {
         await this.eventoRepository.remove(evento);
     }
 
+    // Este método se llamará desde AsistenteService
     async findEventoById(eventoId: number): Promise<EventoEntity> {
         const evento = await this.eventoRepository.findOne({ where: { id: eventoId } });
         if (!evento) {
