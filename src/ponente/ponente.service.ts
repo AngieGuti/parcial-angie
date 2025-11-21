@@ -13,7 +13,6 @@ export class PonenteService {
         private readonly ponenteRepository: Repository<PonenteEntity>,
     ) {}
 
-    // Craer un ponente, en caso que sea interno el email termina en .edu, si es invitado debe contener @ y su dominio
     async crearPonente(ponente: PonenteEntity): Promise<PonenteEntity> {
         if (ponente.tipoPonente === 'Interno' && !ponente.email.endsWith('.edu')) {
             throw new BadRequestException('El email de un ponente interno debe terminar en .edu :(');
@@ -24,7 +23,6 @@ export class PonenteService {
         return await this.ponenteRepository.save(ponente);
     }
 
-    // Obtener un ponente por id 
     async obtenerPonentePorId(id: number): Promise<PonenteEntity> {
         const ponente = await this.ponenteRepository.findOne({ where: { id } });
         if (!ponente) {
@@ -33,7 +31,6 @@ export class PonenteService {
         return ponente;
     }
 
-    // eliminar un ponente por id unicamente si no tiene eventos asociados
     async eliminarPonente(id: number): Promise<void> {
         const ponente = await this.ponenteRepository.findOne({ where: { id }, relations: ['eventos'] });
         if (!ponente) {

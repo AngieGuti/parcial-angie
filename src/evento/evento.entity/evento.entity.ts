@@ -8,6 +8,7 @@ enum Estado{
     APROBADO = "Aprobado",
     RECHAZADO = "Rechazado"
 }
+export {Estado}; // Necesario para usar el enum en el servicio
 
 @Entity()
 export class EventoEntity {
