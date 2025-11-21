@@ -1,4 +1,10 @@
 import { Module } from '@nestjs/common';
+import { AuditorioService } from './auditorio.service';
+import { TypeOrmModule } from '@nestjs/typeorm';
+import { AuditorioEntity } from './auditorio.entity/auditorio.entity';
 
-@Module({})
+@Module({
+  imports: [TypeOrmModule.forFeature([AuditorioEntity])],
+  providers: [AuditorioService]
+})
 export class AuditorioModule {}
