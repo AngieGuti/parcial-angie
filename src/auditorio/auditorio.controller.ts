@@ -8,11 +8,12 @@ export class AuditorioController {
    constructor(private readonly auditorioService: AuditorioService) {} 
 
 
-   // Creación del auditorio  con DTO
+   // Creación del auditorio con DTO
    @Post()
    @HttpCode(HttpStatus.CREATED)
     async crearAuditorio(@Body() auditorioDto: AuditorioDto) {  
-        return this.auditorioService.crearAuditorio(auditorioDto);
+        return this.auditorioService.crearAuditorio(auditorioDto as any);
     }
+    // Me tocó correr para agregarle el DTO al controlador :c
    
 }
