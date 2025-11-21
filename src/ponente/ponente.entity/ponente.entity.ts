@@ -1,4 +1,5 @@
-import {Entity, Column, PrimaryGeneratedColumn, Long } from 'typeorm';
+import { EventoEntity } from 'src/evento/evento.entity/evento.entity';
+import {Entity, Column, PrimaryGeneratedColumn, Long, OneToMany } from 'typeorm';
 
 // Enum classs
 enum TipoPonente {
@@ -27,4 +28,9 @@ export class PonenteEntity {
     // Debe ser un string Interno o Invitado
     @Column()
     tipoPonente: TipoPonente;
+
+    // Asociacinoes 
+
+    @OneToMany(() => EventoEntity, evento => evento.ponente)
+    eventos: EventoEntity[];
 }
